@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
@@ -153,7 +154,7 @@ function initMap() {
 	// Create a map object, and include the MapTypeId to add
 	// to the map type control.
 	var mapOptions = {
-		zoom : 11,
+		zoom : 15,
 		center : initialLocation,
 		mapTypeControlOptions : {
 			mapTypeIds : [google.maps.MapTypeId.ROADMAP, 'map_style']
@@ -167,5 +168,5 @@ function initMap() {
 	map.mapTypes.set('map_style', styledMap);
 	map.setMapTypeId('map_style');
 
-}
+};
 
