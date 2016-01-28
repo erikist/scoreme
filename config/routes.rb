@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'web#index'
   
-  resource :web do
+  resource :web, :path => "web" do
     get 'login' => 'web#login'
     get 'signup' => 'web#signup'
+    get 'index' => 'web#index'
   end
 
   # Example of regular route:

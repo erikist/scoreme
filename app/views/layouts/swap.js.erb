@@ -1,0 +1,6 @@
+$("#yield-container").fadeOut(500, function()
+{
+	var newContent = "<%= escape_javascript(yield) %>";
+	$("#yield-container").html(newContent);
+	$("#yield-container").fadeIn(500);
+});

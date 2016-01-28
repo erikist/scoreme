@@ -170,3 +170,39 @@ function initMap() {
 
 };
 
+function initClickHandlers(){
+	$('#root-link').click(function(event) {
+		var deal_id = $(this).data('deal-id');
+		var url = $(this).attr("href")+".js";
+		$.ajax({
+			url : url,
+			dataType : "script"
+		});
+		event.preventDefault();
+		// Prevent link from following its href
+	});
+	
+	$('#signup-link').click(function(event) {
+		var url = $(this).attr("href")+".js";
+		$.ajax({
+			url : url,
+			dataType : "script"
+		});
+		event.preventDefault();
+		// Prevent link from following its href
+	});
+	
+	$('#login-link').click(function(event) {
+		var url = $(this).attr("href")+".js";
+		$.ajax({
+			url : url,
+			dataType : "script"
+		});
+		event.preventDefault();
+		// Prevent link from following its href
+	});
+};
+
+$(document).on('page:load', initClickHandlers);
+$(initClickHandlers);
+
