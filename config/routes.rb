@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   root 'web#index'
   
   resource :web do
-    
+    get 'login' => 'web#login'
+    get 'signup' => 'web#signup'
   end
 
   # Example of regular route:

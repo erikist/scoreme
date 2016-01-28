@@ -13,6 +13,33 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@font-face {
+	font-family: 'Dosis';
+	src: font-url('Dosis-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Dosis';
+	src: font-url('Dosis-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Dosis';
+	src: font-url('Dosis-ExtraBold.ttf') format('truetype');
+	font-weight: bolder;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Dosis';
+	src: font-url('Dosis-ExtraLight.ttf') format('truetype');
+	font-weight: lighter;
+	font-style: normal;
+}
 
 html {
 	height: 100%
@@ -20,13 +47,35 @@ html {
 body {
 	height: 100%;
 	margin: 0px;
-	padding: 0px
+	padding: 0px;
+	font-family: 'Dosis';
 }
 
 #map {
-	background:#2AC900;
 	width:100%;
 	height:100%;
+	position: absolute;
+	z-index:-999;
+}
+
+.panel-default > .panel-heading {
+	background:#2AC900;
+	color: white;
+}
+
+#yield {
+	position: absolute;
+	top:0;
+	width:100%;
+	height:100%;
+	display:table;
+}
+
+.row-fluid {height: 100%; display:table-cell; vertical-align: middle;}
+
+.centering {
+  float:none;
+  padding:100px 50px 50px 50px;
 }
 
 $bgDefault      : #2ac900;
