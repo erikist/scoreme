@@ -17,7 +17,7 @@ class Account < ActiveRecord::Base
   validates :password, length: {minimum:6}
   validates :password_confirmation, presence: true
   validates :username, length: {minimum: 6}
-  validates :username, uniqueness: true
+  validates :username, uniqueness: { case_sensitive: false }
 
   has_secure_password
 
