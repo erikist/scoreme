@@ -14,6 +14,7 @@ class WebController < ApplicationController
   end
 
   def signup
+    @account = Account.new
     respond_to do |wants|
       wants.html
       wants.js { render :layout => "swap" }
