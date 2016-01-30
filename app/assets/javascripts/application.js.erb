@@ -15,8 +15,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
 function initMap() {
+
+  //
+
+
 	// Create a map object and specify the DOM element for display.
+
 	var initialLocation = new google.maps.LatLng(-34.397, 150.644);
 
 	if (navigator.geolocation) {
@@ -168,6 +175,8 @@ function initMap() {
 	map.mapTypes.set('map_style', styledMap);
 	map.setMapTypeId('map_style');
 
+    window.map = map;
+    placeMarker('dix', map);
 };
 
 function initClickHandlers(){
@@ -203,6 +212,33 @@ function initClickHandlers(){
 	});
 };
 
+function placeMarker(location, map){
+
+    var figureLabel = document.createElement("FIGURE");
+    var pictureLabel = document.createElement("img");
+    pictureLabel.src = "<%= image_path('map_marker_icon.png')%>";
+
+    var caption = document.createElement("FIGCAPTION");
+    figureLabel.appendChild(pictureLabel);
+    figureLabel.appendChild(caption);
+
+    var marker = new MarkerWithLabel({
+        map : map,
+        position : new google.maps.LatLng(33.748149, -84.372247),
+        labelContent : figureLabel,
+        labelAnchor : new google.maps.Point(0, 0),
+        labelClass : "labels",
+        labelStyle : {
+            opacity : 1,
+            margin : 0
+        },
+
+    });
+}
 $(document).on('page:load', initClickHandlers);
 $(initClickHandlers);
+/*$(document).ready(function(){
+  initMap();
+})*/
+$(initMap);
 
