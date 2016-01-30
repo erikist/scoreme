@@ -30,6 +30,7 @@ class AccountsController < ApplicationController
     @authorized_account = Account.login(account_params[:username],account_params[:password])
     respond_to do |wants|
       if @authorized_account
+        session[:uuid] = @authorized_account.tokens.last.uuid
         wants.js { };
       else
         wants.js { };

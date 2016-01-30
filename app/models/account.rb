@@ -11,8 +11,8 @@
 #
 class Account < ActiveRecord::Base
   belongs_to :role
-  has_many :tokens, through: :accounts_to_tokens_catalog
-
+  has_many :tokens, through: :accounts_to_tokens_catalogs
+  has_many :accounts_to_tokens_catalogs
   validates :password, confirmation: true
   validates :password, length: {minimum:6}
   validates :password_confirmation, presence: true
