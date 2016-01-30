@@ -12,6 +12,8 @@
 class Token < ActiveRecord::Base
   before_create :set_up
   
+  has_one :account, through: :accounts_to_tokens_catalog
+  
   def extend_token
     self.expiration_date = Time.now + 15.days
   end

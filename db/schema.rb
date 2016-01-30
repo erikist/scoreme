@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160126223557) do
+ActiveRecord::Schema.define(version: 20160130000255) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "username",        limit: 255
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20160126223557) do
 
   add_index "accounts", ["role_id"], name: "index_accounts_on_role_id", using: :btree
   add_index "accounts", ["username"], name: "index_accounts_on_username", unique: true, using: :btree
+
+  create_table "accounts_to_tokens_catalogs", force: :cascade do |t|
+    t.integer  "token_id",   limit: 4
+    t.integer  "account_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "accounts_to_tokens_catalogs", ["account_id"], name: "index_accounts_to_tokens_catalogs_on_account_id", using: :btree
+  add_index "accounts_to_tokens_catalogs", ["token_id"], name: "index_accounts_to_tokens_catalogs_on_token_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -42,4 +52,6 @@ ActiveRecord::Schema.define(version: 20160126223557) do
   add_index "tokens", ["uuid"], name: "index_tokens_on_uuid", unique: true, using: :btree
 
   add_foreign_key "accounts", "roles"
+  add_foreign_key "accounts_to_tokens_catalogs", "accounts"
+  add_foreign_key "accounts_to_tokens_catalogs", "tokens"
 end

@@ -9,10 +9,9 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
-
 class Account < ActiveRecord::Base
   belongs_to :role
-
+  has_one :account, through: :accounts_to_tokens_catalog
   validates :password, confirmation: true
   validates :password, length: {minimum:6}
   validates :password_confirmation, presence: true
