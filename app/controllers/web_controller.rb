@@ -7,6 +7,7 @@ class WebController < ApplicationController
   end
 
   def login
+    @account = Account.new
     respond_to do |wants|
       wants.html
       wants.js { render :layout => "swap" }

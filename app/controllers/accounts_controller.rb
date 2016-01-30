@@ -25,6 +25,17 @@ class AccountsController < ApplicationController
 
   def show
   end
+  
+  def login
+    @authorized_account = Account.login(account_params[:username],account_params[:password])
+    respond_to do |wants|
+      if @authorized_account
+        wants.js { };
+      else
+        wants.js { };
+      end
+    end
+  end
 
   private
 

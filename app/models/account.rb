@@ -11,7 +11,8 @@
 #
 class Account < ActiveRecord::Base
   belongs_to :role
-  has_one :account, through: :accounts_to_tokens_catalog
+  has_many :tokens, through: :accounts_to_tokens_catalog
+
   validates :password, confirmation: true
   validates :password, length: {minimum:6}
   validates :password_confirmation, presence: true
@@ -19,5 +20,16 @@ class Account < ActiveRecord::Base
   validates :username, uniqueness: { case_sensitive: false }
 
   has_secure_password
+  
+  class << self
+    def login(username, password)
+      account = Account.find_by username: username
+      if(account && account.authenticate(password))
+        token = Token.create
+        AccountsToTokensCatalog.create({account: account, token: token})
+      return account
+      end
+    end
+  end
 
 end
