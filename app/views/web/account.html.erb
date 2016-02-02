@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="container-fluid">
+			<div class="row">
+				<div id="account-left-with-picture" class="col-sm-5">
+					<%= image_tag 'missing_photo.png' %>
+					<div>
+						<%= @authorized_account.username %>
+					</div>
+					<div>
+				<%= link_to edit_account_path(@authorized_account), :id => 'login-link', remote:true do %>
+				<span class="glyphicon glyphicon-lock"></span> Edit Password
+				<% end %>
+			</div>
+				</div>
+				<div class="col-sm-7" id="edit-account-area">
+					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

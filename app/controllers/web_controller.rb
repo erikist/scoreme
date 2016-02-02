@@ -21,4 +21,11 @@ class WebController < ApplicationController
       wants.js { render :layout => "swap" }
     end
   end
+  
+  def account
+    respond_to do |wants|
+      wants.html
+      wants.js { render :layout => "swap" }
+    end
+  end
 end

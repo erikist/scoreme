@@ -26,6 +26,11 @@
 					<% end %>
 				</li>
 				<% else %>
+				<li>
+					<%= link_to account_web_path, :id => 'login-link' do %>
+					<span class="glyphicon glyphicon-user"></span><%= " " + @authorized_account.username %>
+					<% end %>
+				</li>
 				<% end %>
 			</ul>
 		</div><!-- /.navbar-collapse -->

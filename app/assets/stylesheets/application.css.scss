@@ -89,6 +89,15 @@ body {
    margin-top: 5px; 
 }
 
+#account-left-with-picture {
+  text-align:center;
+}
+
+#account-left-with-picture img {
+  height:100px;
+  width:auto;
+}
+
 $bgDefault      : #2ac900;
 $bgHighlight    : #58fc2d;
 $colDefault     : #ffffff;
@@ -157,6 +166,7 @@ $dropDown       : true;
         color: $colHighlight;
         background-color: $bgHighlight; }}}
 }
+
 $color-primary-0: #2AC900;	// Main Primary color */
 $color-primary-1: #58FC2D;
 $color-primary-2: #34FA00;

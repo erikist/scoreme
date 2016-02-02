@@ -1,0 +1,6 @@
+$("#edit-account-area").fadeOut(500, function()
+{
+	var newContent = "<%= escape_javascript(yield) %>";
+	$("#edit-account-area").html(newContent);
+	$("#edit-account-area").fadeIn(500);
+});

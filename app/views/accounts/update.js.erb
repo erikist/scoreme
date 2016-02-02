@@ -1,0 +1,5 @@
+$('#error_explanation').html("");
+
+<% @account.errors.full_messages.each do |message| %>
+	$('#error_explanation').append("<div class='alert alert-danger' style='margin-bottom:5px'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Danger!</strong> <%= message %></div>");
+<% end %>

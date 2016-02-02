@@ -17,7 +17,20 @@ class AccountsController < ApplicationController
     end
   end
 
+  def edit
+    respond_to do |wants|
+      wants.json {  }
+      wants.js {  render :layout => "account_swap"  }
+    end
+  end
+
   def update
+    @account.update(account_params)
+    #need to check if authorized
+    respond_to do |wants|
+      wants.json {  }
+      wants.js { }
+    end
   end
 
   def destroy
@@ -25,7 +38,7 @@ class AccountsController < ApplicationController
 
   def show
   end
-  
+
   def login
     @authorized_account = Account.login(account_params[:username],account_params[:password])
     respond_to do |wants|

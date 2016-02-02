@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     get 'login' => 'web#login'
     get 'signup' => 'web#signup'
     get 'index' => 'web#index'
+    get 'account' => 'web#account'
   end
 
 # Example of regular route:
