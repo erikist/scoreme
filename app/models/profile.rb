@@ -13,4 +13,7 @@
 
 class Profile < ActiveRecord::Base
   belongs_to :account
+  
+  has_many :pictures, through: :profile_to_pictures_catalogs
+  has_many :profile_to_pictures_catalogs
 end
