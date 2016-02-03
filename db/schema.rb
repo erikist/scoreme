@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202232143) do
+ActiveRecord::Schema.define(version: 20160203232357) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "username",        limit: 255
@@ -40,13 +40,23 @@ ActiveRecord::Schema.define(version: 20160202232143) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "profile_to_pictures_catalogs", force: :cascade do |t|
+    t.integer  "profile_id", limit: 4
+    t.integer  "picture_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "profile_to_pictures_catalogs", ["picture_id"], name: "index_profile_to_pictures_catalogs_on_picture_id", using: :btree
+  add_index "profile_to_pictures_catalogs", ["profile_id"], name: "index_profile_to_pictures_catalogs_on_profile_id", using: :btree
+
   create_table "profiles", force: :cascade do |t|
     t.integer  "account_id",   limit: 4
     t.string   "first_name",   limit: 255
     t.string   "last_name",    limit: 255
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.integer  "phone_number", limit: 4
+    t.string   "phone_number", limit: 255
   end
 
   add_index "profiles", ["account_id"], name: "index_profiles_on_account_id", using: :btree
@@ -71,5 +81,7 @@ ActiveRecord::Schema.define(version: 20160202232143) do
   add_foreign_key "accounts", "roles"
   add_foreign_key "accounts_to_tokens_catalogs", "accounts"
   add_foreign_key "accounts_to_tokens_catalogs", "tokens"
+  add_foreign_key "profile_to_pictures_catalogs", "pictures"
+  add_foreign_key "profile_to_pictures_catalogs", "profiles"
   add_foreign_key "profiles", "accounts"
 end

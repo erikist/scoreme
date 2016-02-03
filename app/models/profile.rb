@@ -16,4 +16,9 @@ class Profile < ActiveRecord::Base
   
   has_many :pictures, through: :profile_to_pictures_catalogs
   has_many :profile_to_pictures_catalogs
+  
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :phone_number, presence: true
+  
 end

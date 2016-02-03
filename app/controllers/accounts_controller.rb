@@ -28,7 +28,7 @@ class AccountsController < ApplicationController
     @account.update(account_params)
     #need to check if authorized
     respond_to do |wants|
-      wants.json {  }
+      wants.json { }
       wants.js { }
     end
   end

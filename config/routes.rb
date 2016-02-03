@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+  
   resources :accounts do
     collection do
       post 'login'
     end
+  end
+  
+  resources :profiles do 
+    
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
