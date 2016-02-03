@@ -1,17 +1,16 @@
 # == Schema Information
 #
-# Table name: accounts_to_tokens_catalogs
+# Table name: pictures
 #
 #  id         :integer          not null, primary key
-#  token_id   :integer
-#  account_id :integer
+#  location   :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'test_helper'
 
-class AccountsToTokensCatalogTest < ActiveSupport::TestCase
+class PictureTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201231722) do
+ActiveRecord::Schema.define(version: 20160202232143) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "username",        limit: 255
@@ -34,12 +34,19 @@ ActiveRecord::Schema.define(version: 20160201231722) do
   add_index "accounts_to_tokens_catalogs", ["account_id"], name: "index_accounts_to_tokens_catalogs_on_account_id", using: :btree
   add_index "accounts_to_tokens_catalogs", ["token_id"], name: "index_accounts_to_tokens_catalogs_on_token_id", using: :btree
 
-  create_table "profiles", force: :cascade do |t|
-    t.integer  "account_id", limit: 4
-    t.string   "first_name", limit: 255
-    t.string   "last_name",  limit: 255
+  create_table "pictures", force: :cascade do |t|
+    t.string   "location",   limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "account_id",   limit: 4
+    t.string   "first_name",   limit: 255
+    t.string   "last_name",    limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "phone_number", limit: 4
   end
 
   add_index "profiles", ["account_id"], name: "index_profiles_on_account_id", using: :btree
