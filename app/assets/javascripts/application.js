@@ -201,6 +201,10 @@ function initClickHandlers(){
 		event.preventDefault();
 		// Prevent link from following its href
 	});
+	
+	$('.navbar-collapse a').click(function(){
+    	$(".navbar-collapse").collapse('hide');
+	});
 };
 
 $(document).on('page:load', initClickHandlers);

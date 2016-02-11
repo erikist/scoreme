@@ -12,11 +12,28 @@
 		<%= render "navigation" %>
 
 		<div id="yield">
-			<div id="map"></div>
-			<div class="row-fluid">
-				<div class="centering" id="yield-container">
-					<%= yield %>
+			<div id="pageCarousel" class="carousel slide" data-ride="" data-interval="false">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#pageCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#pageCarousel" data-slide-to="1"></li>
+				</ol>
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<div id="map"></div>
+					</div>
+
+					<div id="yield-container" class="item">
+						<%= yield %>
+					</div>
 				</div>
+
+				<!-- Left and right controls -- ELIMINATED (for now?) 
+				<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+				<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+				-->
 			</div>
 		</div>
 		<script async defer src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCzbD-3fMLdXaPckBVALCgLcEVcNFJb9b4&callback=initMap"></script>
