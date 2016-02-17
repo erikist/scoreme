@@ -45,8 +45,8 @@ html {
 	height: 100%
 }
 
-$gradient-top: rgba(  2, 60,102,.65);
-$gradient-bottom: rgba(  2, 60,102,.65);
+$gradient-top: rgba( 57,169,249,.45);
+$gradient-bottom: rgba( 57,169,249,.45);
 
 body {
 	height: 100%;
@@ -104,13 +104,16 @@ body {
 }
 
 #account-left-with-picture img {
-  height:100px;
-  width:auto;
+  width: 50%;
+  max-height: 210px;
+  max-width: 210px;
+  height: auto;
 }
 
 #edit-account-area h3 {
   margin-top: 0px;
 }
+
 
 $bgDefault      : #2ac900;
 $bgHighlight    : #58fc2d;
